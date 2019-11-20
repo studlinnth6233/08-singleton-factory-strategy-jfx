@@ -30,7 +30,8 @@ import java.util.*;
  *
  * @author Peter Kurfer
  */
-public class MainController implements Initializable {
+public class MainController implements Initializable
+{
 
 	/**
 	 * Logger e.g. to debug multi-threading issues
@@ -61,7 +62,8 @@ public class MainController implements Initializable {
 	/*
 	  static initializer to initialize fields in class
 	 */
-	static {
+	static
+	{
 		logger = LogManager.getLogger(MainController.class);
 		openMensaDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
 	}
@@ -69,7 +71,8 @@ public class MainController implements Initializable {
 	/**
 	 * Default constructor
 	 */
-	public MainController() {
+	public MainController()
+	{
 		meals = FXCollections.observableArrayList();
 		gson = new Gson();
 
@@ -91,7 +94,8 @@ public class MainController implements Initializable {
 	 * @param resources
 	 */
 	@Override
-	public void initialize(URL location, ResourceBundle resources) {
+	public void initialize(URL location, ResourceBundle resources)
+	{
 		mealsListView.setItems(meals);
 		filterChoiceBox.setItems(FXCollections.observableList(Arrays.asList(gson.fromJson(new InputStreamReader(getClass().getResourceAsStream("/filters.json")), String[].class))));
 		doGetMeals();
@@ -100,12 +104,16 @@ public class MainController implements Initializable {
 	/**
 	 * Handles fetching of meals from OpenMensa API
 	 */
-	private void doGetMeals() {
-		api.getMeals(openMensaDateFormat.format(new Date())).enqueue(new Callback<List<Meal>>() {
+	private void doGetMeals()
+	{
+		api.getMeals(openMensaDateFormat.format(new Date())).enqueue(new Callback<List<Meal>>()
+		{
 			@Override
-			public void onResponse(Call<List<Meal>> call, Response<List<Meal>> response) {
+			public void onResponse(Call<List<Meal>> call, Response<List<Meal>> response)
+			{
 				logger.debug("Got response");
-				if (!response.isSuccessful() || response.body() == null) {
+				if (!response.isSuccessful() || response.body() == null)
+				{
 					logger.error(String.format("Got response with not successfull code %d", response.code()));
 					Platform.runLater(() -> {
 						Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -121,7 +129,8 @@ public class MainController implements Initializable {
 			}
 
 			@Override
-			public void onFailure(Call<List<Meal>> call, Throwable t) {
+			public void onFailure(Call<List<Meal>> call, Throwable t)
+			{
 				logger.error("Failed to fetch meals");
 				Alert alert = new Alert(Alert.AlertType.ERROR);
 				alert.setHeaderText("Failed HTTP call");

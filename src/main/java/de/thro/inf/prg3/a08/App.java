@@ -10,14 +10,17 @@ import javafx.stage.Stage;
  * Entrypoint of application
  * Launches JavaFX app by loading main.fxml file
  */
-public class App extends Application {
+public class App extends Application
+{
 
-	public static void main(String[] args) {
+	public static void main(String[] args)
+	{
 		launch(args);
 	}
 
 	@Override
-	public void start(Stage primaryStage) throws Exception {
+	public void start(Stage primaryStage) throws Exception
+	{
 		Parent root = FXMLLoader.<Parent>load(getClass().getResource("views/main.fxml"));
 		primaryStage.setTitle("Cafeteria");
 		primaryStage.setScene(new Scene(root, 800, 600));
