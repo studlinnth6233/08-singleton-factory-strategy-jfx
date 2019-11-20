@@ -5,29 +5,28 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.*?>
-<GridPane xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1"
-		  fx:controller="de.thro.inf.prg3.a08.controller.MainController">
+<GridPane xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.thro.inf.prg3.a08.controller.MainController">
 	<columnConstraints>
-		<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
+		<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
 	</columnConstraints>
 	<rowConstraints>
-		<RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="NEVER"/>
-		<RowConstraints minHeight="400.0" vgrow="ALWAYS"/>
+		<RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="NEVER" />
+		<RowConstraints minHeight="400.0" vgrow="ALWAYS" />
 	</rowConstraints>
 	<HBox GridPane.hgrow="NEVER">
 		<GridPane.margin>
-			<Insets/>
+			<Insets />
 		</GridPane.margin>
-		<ChoiceBox fx:id="filterChoiceBox" prefWidth="150.0">
+		<ChoiceBox fx:id="filterChoiceBox" accessibleRole="CHECK_BOX" prefWidth="150.0">
 			<HBox.margin>
-				<Insets bottom="5.0" left="10.0" top="5.0"/>
+				<Insets bottom="5.0" left="10.0" top="5.0" />
 			</HBox.margin>
 		</ChoiceBox>
-		<Button mnemonicParsing="false" text="Refresh">
+		<Button mnemonicParsing="false" onAction="#refresh" text="Refresh">
 			<HBox.margin>
-				<Insets bottom="5.0" left="10.0" top="5.0"/>
+				<Insets bottom="5.0" left="10.0" top="5.0" />
 			</HBox.margin>
 		</Button>
 	</HBox>
-	<ListView fx:id="mealsListView" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS"/>
+	<ListView fx:id="mealsListView" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS" />
 </GridPane>
